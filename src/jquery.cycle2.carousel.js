@@ -1,4 +1,4 @@
-/*! carousel transition plugin for Cycle2;  version: 20130528 */
+/*! carousel transition plugin for Cycle2;  version: 20161107 */
 (function($) {
 "use strict";
 
@@ -41,7 +41,7 @@ $.fn.cycle.transitions.carousel = {
 
     // transition API impl
     postInit: function( opts ) {
-        var i, j, slide, pagerCutoffIndex, wrap;
+        var pagerCutoffIndex, wrap;
         var vert = opts.carouselVertical;
         if (opts.carouselVisible && opts.carouselVisible > opts.slideCount)
             opts.carouselVisible = opts.slideCount - 1;
@@ -56,9 +56,7 @@ $.fn.cycle.transitions.carousel = {
 
         // wrap slides in a div; this div is what is animated
         wrap = $('<div class="cycle-carousel-wrap"></div>')
-            .prependTo( opts.container )
-            .css({ margin: 0, padding: 0, top: 0, left: 0, position: 'absolute' })
-            .append( opts.slides );
+            .css({ margin: 0, padding: 0, top: 0, left: 0, position: 'absolute' });
 
         opts._carouselWrap = wrap;
 
@@ -69,21 +67,15 @@ $.fn.cycle.transitions.carousel = {
             // prepend and append extra slides so we don't see any empty space when we
             // near the end of the carousel.  for fluid containers, add even more clones
             // so there is plenty to fill the screen
-            // @todo: optimzie this based on slide sizes
-
-            for ( j=0; j < (opts.carouselVisible === undefined ? 2 : 1); j++ ) {
-                for ( i=0; i < opts.slideCount; i++ ) {
-                    wrap.append( opts.slides[i].cloneNode(true) );
-                }
-                i = opts.slideCount;
-                while ( i-- ) { // #160, #209
-                    wrap.prepend( opts.slides[i].cloneNode(true) );
-                }
-            }
+            appendWrappedSlidesToWrap(opts);
 
             wrap.find('.cycle-slide-active').removeClass('cycle-slide-active');
             opts.slides.eq(opts.startingSlide).addClass('cycle-slide-active');
+        } else {
+            wrap.append(opts.slides);
         }
+
+        opts.container.prepend(wrap);
 
         if ( opts.pager && opts.allowWrap === false ) {
             // hide "extra" pagers
@@ -265,5 +257,20 @@ $.fn.cycle.transitions.carousel = {
         opts._carouselWrap.remove();
     }
 };
+
+function appendWrappedSlidesToWrap(opts) {
+    var slidesHtml = '';
+
+    opts.slides.each(function (index, slide) {
+        slidesHtml += slide.outerHTML;
+    });
+
+    if (opts.carouselVisible === undefined) {
+        opts._carouselWrap.append(slidesHtml, slidesHtml, opts.slides, slidesHtml, slidesHtml);
+    } else {
+        opts._carouselWrap.append(slidesHtml, opts.slides, slidesHtml);
+    }
+}
+
 
 })(jQuery);

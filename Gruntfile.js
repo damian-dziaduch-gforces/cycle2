@@ -93,15 +93,6 @@ grunt.initConfig({
                 'build/plugin/jquery.cycle2.tile.min.js':        [ 'src/jquery.cycle2.tile.js' ],
                 'build/plugin/jquery.cycle2.video.min.js':       [ 'src/jquery.cycle2.video.js' ]
             }
-        },
-
-        tcycle: {
-            options: {
-                banner: '/* tCycle; (c) 2012 M. Alsup; MIT/GPL; v<%= grunt.template.today("yyyymmdd") %> */\n'
-            },
-            files: {
-                'build/tcycle/jquery.tcycle.min.js': [ 'src/jquery.tcycle.js' ]
-            }
         }
     },
 
