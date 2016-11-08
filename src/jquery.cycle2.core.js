@@ -2,7 +2,7 @@
 ;(function($) {
 "use strict";
 
-var version = '2.1.6';
+var version = '2.1.8';
 
 $.fn.cycle = function( options ) {
     // fix mistakes with the ready state
@@ -19,15 +19,15 @@ $.fn.cycle = function( options ) {
     return this.each(function() {
         var data, opts, shortName, val;
         var container = $(this);
-        var log = $.fn.cycle.log;
+        var log = $.noop;
 
         if ( container.data('cycle.opts') )
             return; // already initialized
 
-        if ( container.data('cycle-log') === false || 
-            ( options && options.log === false ) ||
-            ( opts && opts.log === false) ) {
-            log = $.noop;
+        if ( container.data('cycle-log') === true ||
+            ( options && options.log === true ) ||
+            ( opts && opts.log === true) ) {
+            log = $.fn.cycle.log;
         }
 
         log('--c2 init--');

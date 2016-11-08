@@ -46,10 +46,7 @@ grunt.initConfig({
     uglify: {
         main: {
             options: {
-                preserveComments : 'some',
-                sourceMap: 'build/jquery.cycle2.js.map',
-                sourceMappingURL: 'jquery.cycle2.js.map',
-                sourceMapRoot: 'http://malsup.github.io/'
+                preserveComments : 'some'
             },
             files: {
                 'build/jquery.cycle2.min.js': [ 'build/jquery.cycle2.js' ]

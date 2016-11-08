@@ -1,7 +1,7 @@
 {
-  "name": "jquery-cycle2",
-  "version": "2.1.6",
-  "homepage": "http://jquery.malsup.com/cycle2",
+  "name": "jquery-cycle2-gforces",
+  "version": "2.1.8",
+  "homepage": "https://github.com/damian-dziaduch-gforces/cycle2-gforces",
   "engines": {
     "node": ">= 0.6.0"
   },
