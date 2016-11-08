@@ -1,5 +1,7 @@
 # Cycle2 - 2nd Generation Cycling!
 
+GForces edition. Performance improved.
+
 ## Getting Started
 Download either the [production version][min] or the [development version][max] of Cycle2.
 
