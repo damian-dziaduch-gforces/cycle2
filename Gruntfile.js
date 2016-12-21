@@ -6,30 +6,6 @@ module.exports = function(grunt) {
 grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    concat: {
-        options: { 
-            separator: '\n',
-            banner: '/*!\n* jQuery Cycle2; version: <%=pkg.version %> build: <%= grunt.template.today("yyyymmdd") %>\n' +
-              '* http://jquery.malsup.com/cycle2/\n' +
-              '* Copyright (c) <%= grunt.template.today("yyyy") %> M. Alsup; Dual licensed: MIT/GPL\n*/\n\n'
-        }, 
-        dist: {
-        src: [
-            'src/jquery.cycle2.core.js',
-            'src/jquery.cycle2.autoheight.js',
-            'src/jquery.cycle2.caption.js',
-            'src/jquery.cycle2.command.js',
-            'src/jquery.cycle2.hash.js',
-            'src/jquery.cycle2.loader.js',
-            'src/jquery.cycle2.pager.js',
-            'src/jquery.cycle2.prevnext.js',
-            'src/jquery.cycle2.progressive.js',
-            'src/jquery.cycle2.tmpl.js'
-        ],
-        dest: 'build/jquery.cycle2.js'
-      }
-    },
-
     jshint: {
         files: [ 'src/*.js' ],
         options: {
@@ -44,15 +20,6 @@ grunt.initConfig({
     },
 
     uglify: {
-        main: {
-            options: {
-                preserveComments : 'some'
-            },
-            files: {
-                'build/jquery.cycle2.min.js': [ 'build/jquery.cycle2.js' ]
-            }
-        },
-
         core: {
             options: {
                 banner: '/*!\n* jQuery Cycle2; version: <%=pkg.version %> build: <%= grunt.template.today("yyyymmdd") %>\n' +
@@ -78,7 +45,7 @@ grunt.initConfig({
                 'build/core/jquery.cycle2.prevnext.min.js':    [ 'src/jquery.cycle2.prevnext.js' ],
                 'build/core/jquery.cycle2.progressive.min.js': [ 'src/jquery.cycle2.progressive.js' ],
                 'build/core/jquery.cycle2.tmpl.min.js':        [ 'src/jquery.cycle2.tmpl.js' ],
-                
+
                 'build/plugin/jquery.cycle2.caption2.min.js':    [ 'src/jquery.cycle2.caption2.js' ],
                 'build/plugin/jquery.cycle2.carousel.min.js':    [ 'src/jquery.cycle2.carousel.js' ],
                 'build/plugin/jquery.cycle2.center.min.js':      [ 'src/jquery.cycle2.center.js' ],
@@ -95,16 +62,15 @@ grunt.initConfig({
 
     watch: {
         files: 'src/*.js',
-        tasks: 'jshint concat uglify'
+        tasks: 'jshint uglify'
     }
 
 });
 
 grunt.loadNpmTasks('grunt-contrib-jshint');
-grunt.loadNpmTasks('grunt-contrib-concat');
 grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-watch');
 
-grunt.registerTask('default', [ 'jshint', 'concat', 'uglify' ]);
+grunt.registerTask('default', [ 'jshint', 'uglify' ]);
 
 };
