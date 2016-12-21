@@ -1,7 +1,7 @@
 ;(function($) {
 "use strict";
 
-var version = '2.1.8';
+var version = '2.1.9';
 
 $.fn.cycle = function( options ) {
     // fix mistakes with the ready state
