@@ -28,7 +28,7 @@ $.fn.cycle.transitions.carousel = {
     // transition API impl
     preInit: function( opts ) {
         opts.hideNonActive = false;
-        
+
         opts.container.on('cycle-destroyed', $.proxy(this.onDestroy, opts.API));
         // override default API implementation
         opts.API.stopTransition = this.stopTransition;
@@ -36,7 +36,7 @@ $.fn.cycle.transitions.carousel = {
         // issue #10
         for (var i=0; i < opts.startingSlide; i++) {
             opts.container.append( opts.slides[0] );
-        }        
+        }
     },
 
     // transition API impl
@@ -120,7 +120,7 @@ $.fn.cycle.transitions.carousel = {
                 // calculate offset based on actual slide dimensions
                 tmp = opts._carouselWrap.children();
                 for (j=0; j < (opts.slideCount + opts.currSlide); j++) {
-                    offset -= $(tmp[j])[vert?'outerHeight':'outerWidth'](true);
+                    offset -= this[vert ? 'getSlideHeight' : 'getSlideWidth'](tmp[j]);
                 }
             }
         }
@@ -180,7 +180,7 @@ $.fn.cycle.transitions.carousel = {
             else if ( hops < 0 && opts.currSlide > maxCurr ) {
                 hops += opts.currSlide - maxCurr;
             }
-            else 
+            else
                 currSlide = opts.currSlide;
 
             moveBy = this.getScroll( opts, vert, currSlide, hops );
@@ -255,6 +255,28 @@ $.fn.cycle.transitions.carousel = {
             $( window ).off( 'resize', opts._carouselResizeThrottle );
         opts.slides.prependTo( opts.container );
         opts._carouselWrap.remove();
+    },
+
+    /**
+    * @param {HTMLElement} slide
+    */
+    getSlideWidth: function (slide) {
+        try {
+            return slide.getBoundingClientRect().width;
+        } catch (error) {
+            return 0;
+        }
+  },
+
+    /**
+    * @param {HTMLElement} slide
+    */
+    getSlideHeight: function (slide) {
+        try {
+            return slide.getBoundingClientRect().height;
+        } catch (error) {
+            return 0;
+        }
     }
 };
 
