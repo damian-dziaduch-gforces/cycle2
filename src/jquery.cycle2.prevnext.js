@@ -1,4 +1,3 @@
-/*! prevnext plugin for Cycle2;  version: 20140408 */
 (function($) {
 "use strict";
 

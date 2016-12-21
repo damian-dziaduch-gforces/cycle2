@@ -1,4 +1,3 @@
-/*! shuffle transition plugin for Cycle2;  version: 20140128 */
 (function($) {
 "use strict";
 
@@ -19,10 +18,10 @@ $.fn.cycle.transitions.shuffle = {
 
         if ( opts.shuffleLeft !== undefined ) {
             props1.left = props1.left + parseInt(opts.shuffleLeft, 10) || 0;
-        } 
+        }
         else if ( opts.shuffleRight !== undefined ) {
             props1.left = width + parseInt(opts.shuffleRight, 10) || 0;
-        } 
+        }
         if ( opts.shuffleTop ) {
             props1.top = opts.shuffleTop;
         }

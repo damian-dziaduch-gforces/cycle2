@@ -1,4 +1,3 @@
-/*! hash plugin for Cycle2;  version: 20130905 */
 (function($) {
 "use strict";
 
@@ -31,7 +30,7 @@ function onHashChange( opts, setStartingSlide ) {
         opts._hashFence = false;
         return;
     }
-    
+
     hash = window.location.hash.substring(1);
 
     opts.slides.each(function(i) {

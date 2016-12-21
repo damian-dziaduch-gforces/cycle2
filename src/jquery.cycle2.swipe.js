@@ -1,4 +1,3 @@
-/*! swipe plugin for Cycle2;  version: 20121120 */
 (function($) {
 "use strict";
 

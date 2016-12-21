@@ -22,9 +22,7 @@ grunt.initConfig({
     uglify: {
         core: {
             options: {
-                banner: '/*!\n* jQuery Cycle2; version: <%=pkg.version %> build: <%= grunt.template.today("yyyymmdd") %>\n' +
-                    '* http://jquery.malsup.com/cycle2/\n' +
-                    '* Copyright (c) <%= grunt.template.today("yyyy") %> M. Alsup; Dual licensed: MIT/GPL\n*/\n'
+                banner: '/* Plugin for Cycle2; Copyright (c) 2012-2016 M. Alsup, D. Dziaduch; v<%=pkg.version %> */\n'
             },
             files: {
                 'build/core/jquery.cycle2.core.min.js': [ 'src/jquery.cycle2.core.js' ]
@@ -33,7 +31,7 @@ grunt.initConfig({
 
         plugins: {
             options: {
-                banner: '/* Plugin for Cycle2; Copyright (c) 2012 M. Alsup; v<%= grunt.template.today("yyyymmdd") %> */\n'
+                banner: '/* Plugin for Cycle2; Copyright (c) 2012-2016 M. Alsup, , D. Dziaduch; v<%=pkg.version %> */\n'
             },
             files: {
                 'build/core/jquery.cycle2.autoheight.min.js':  [ 'src/jquery.cycle2.autoheight.js' ],

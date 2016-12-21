@@ -1,4 +1,3 @@
-/*! Cycle2 autoheight plugin; Copyright (c) M.Alsup, 2012; version: 20130913 */
 (function($) {
 "use strict";
 
@@ -6,7 +5,7 @@ $.extend($.fn.cycle.defaults, {
     autoHeight: 0, // setting this option to false disables autoHeight logic
     autoHeightSpeed: 250,
     autoHeightEasing: null
-});    
+});
 
 $(document).on( 'cycle-initialized', function( e, opts ) {
     var autoHeight = opts.autoHeight;
@@ -24,7 +23,7 @@ $(document).on( 'cycle-initialized', function( e, opts ) {
     if ( autoHeight == 'container' ) {
         opts.container.on( 'cycle-before', onBefore );
     }
-    else if ( t === 'string' && /\d+\:\d+/.test( autoHeight ) ) { 
+    else if ( t === 'string' && /\d+\:\d+/.test( autoHeight ) ) {
         // use ratio
         ratio = autoHeight.match(/(\d+)\:(\d+)/);
         ratio = ratio[1] / ratio[2];
@@ -58,7 +57,7 @@ function initAutoHeight( e, opts ) {
         height = $( opts.slides[ opts.currSlide ] ).outerHeight();
         opts.container.height( height );
     }
-    else if ( opts._autoHeightRatio ) { 
+    else if ( opts._autoHeightRatio ) {
         opts.container.height( opts.container.width() / opts._autoHeightRatio );
     }
     else if ( autoHeight === 'calc' || ( $.type( autoHeight ) == 'number' && autoHeight >= 0 ) ) {
@@ -66,7 +65,7 @@ function initAutoHeight( e, opts ) {
             sentinelIndex = calcSentinelIndex( e, opts );
         else if ( autoHeight >= opts.slides.length )
             sentinelIndex = 0;
-        else 
+        else
             sentinelIndex = autoHeight;
 
         // only recreate sentinel if index is different
@@ -79,7 +78,7 @@ function initAutoHeight( e, opts ) {
 
         // clone existing slide as sentinel
         clone = $( opts.slides[ sentinelIndex ].cloneNode(true) );
-        
+
         // #50; remove special attributes from cloned content
         clone.removeAttr( 'id name rel' ).find( '[id],[name],[rel]' ).removeAttr( 'id name rel' );
 
@@ -92,7 +91,7 @@ function initAutoHeight( e, opts ) {
 
         opts._sentinel = clone;
     }
-}    
+}
 
 function calcSentinelIndex( e, opts ) {
     var index = 0, max = -1;

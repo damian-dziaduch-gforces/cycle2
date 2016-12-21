@@ -1,4 +1,3 @@
-/*! tmpl plugin for Cycle2;  version: 20121227 */
 (function($) {
 "use strict";
 
@@ -35,6 +34,6 @@ $.extend($.fn.cycle.API, {
             return str;
         });
     }
-});    
+});
 
 })(jQuery);

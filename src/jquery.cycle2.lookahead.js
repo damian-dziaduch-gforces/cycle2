@@ -1,4 +1,3 @@
-/*! Cycle2 lookahead plugin; Copyright (c) M.Alsup, 2013; version: 20130317 */
 (function($) {
 "use strict";
 

@@ -1,4 +1,3 @@
-/*! caption2 plugin for Cycle2;  version: 20130708 */
 (function($) {
 "use strict";
 
@@ -9,7 +8,7 @@ $.extend($.fn.cycle.defaults, {
     overlayFxOut:      'fadeOut',
     overlayFxIn:       'fadeIn',
     overlayFxSel:      undefined
-});    
+});
 
 $(document).on( 'cycle-bootstrap', function(e, opts) {
     opts.container.on( 'cycle-update-view-before', update );

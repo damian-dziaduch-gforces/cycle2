@@ -1,4 +1,3 @@
-/*! command plugin for Cycle2;  version: 20140415 */
 (function($) {
 "use strict";
 

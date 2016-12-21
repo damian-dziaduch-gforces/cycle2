@@ -1,4 +1,3 @@
-/*! progressive loader plugin for Cycle2;  version: 20130315 */
 (function($) {
 "use strict";
 
@@ -41,7 +40,7 @@ $(document).on( 'cycle-pre-initialize', function( e, opts ) {
         else {
             // plain text, split on delimeter
             slides = slides.split( new RegExp( scriptEl.data('cycle-split') || '\n') );
-            
+
             // #95; look for empty slide
             if ( ! slides[ slides.length - 1 ] )
                 slides.pop();
@@ -101,11 +100,11 @@ $(document).on( 'cycle-pre-initialize', function( e, opts ) {
                 opts.API.add( slide );
             }
             else {
-                nextFn.apply( opts.API );    
+                nextFn.apply( opts.API );
             }
         };
     }
-    
+
     if ( prevFn ) {
         API.prev = function() {
             var opts = this.opts();

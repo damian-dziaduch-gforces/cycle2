@@ -8,8 +8,7 @@ Everything you need to know can be found here:
 
 ## Bower
 To install Cycle2 via Bower:
-<pre>bower install jquery-cycle2</pre>
-The only file you will need (unless you're customizing) is <code>build/jquery.cycle2.min.js</code>
+<pre>bower install jquery-cycle2-gforces</pre>
 
 ## Build
 If you want to make changes to Cycle2 and build it yourself, you can do so by installing the node build dependencies:
@@ -18,7 +17,7 @@ and then running grunt
 <pre>grunt</pre>
 
 ## Copyright and License
-Copyright &copy; 2012-2014 M. Alsup.
+Copyright &copy; 2012-2016 M. Alsup, D. Dziaduch
 
 The Cycle2 plugin is dual licensed under the [MIT](http://malsup.github.com/mit-license.txt) and [GPL](http://malsup.github.com/gpl-license-v2.txt) licenses.
 

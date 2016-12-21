@@ -1,4 +1,3 @@
-/*! css3 flip transition plugin for Cycle2;  version: 20140128 */
 /*! originally written by Laubeee (https://github.com/Laubeee) */
 (function($) {
 "use strict";
@@ -34,7 +33,7 @@ else {
     tx.flipVert = tx.scrollVert || tx.scrollHorz;
 }
 
-    
+
 function getTransition( rotateFn ) {
     // return C2 transition object
     return {
@@ -43,7 +42,7 @@ function getTransition( rotateFn ) {
         },
         transition: function( slideOpts, currEl, nextEl, fwd, callback ) {
             var opts = slideOpts,
-                curr = $(currEl), 
+                curr = $(currEl),
                 next = $(nextEl),
                 speed = opts.speed / 2;
 
@@ -82,7 +81,7 @@ function getRotate( dir ) {
         var el = $(this);
         el.css({
             '-webkit-transform': 'rotate'+dir+'('+degrees+'deg)',
-            '-moz-transform': 'rotate'+dir+'('+degrees+'deg)', 
+            '-moz-transform': 'rotate'+dir+'('+degrees+'deg)',
             '-ms-transform': 'rotate'+dir+'('+degrees+'deg)',
             '-o-transform': 'rotate'+dir+'('+degrees+'deg)',
             'transform': 'rotate'+dir+'('+degrees+'deg)'

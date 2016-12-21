@@ -1,4 +1,3 @@
-/*! loader plugin for Cycle2;  version: 20131121 */
 (function($) {
 "use strict";
 
@@ -75,7 +74,7 @@ $(document).on( 'cycle-bootstrap', function( e, opts ) {
 
         if ( slideCount )
             opts.container.addClass('cycle-loading');
-        
+
 
         function addSlide( slide ) {
             var curr;

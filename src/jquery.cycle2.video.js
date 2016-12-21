@@ -1,4 +1,3 @@
-/*! youtube plugin for Cycle2;  version: 20130708 */
 (function($) {
 "use strict";
 
@@ -14,14 +13,14 @@ $.extend($.fn.cycle.defaults, {
     youtubeAllowFullScreen: true,
     youtubeAutostart: false,
     youtubeAutostop:  true
-});    
+});
 
 $(document).on( 'cycle-bootstrap', function( e, opts ) {
     if ( ! opts.youtube )
         return;
 
     // don't hide inactive slides; hiding video causes reload when it's shown again
-    opts.hideNonActive = false; 
+    opts.hideNonActive = false;
 
     opts.container.find( opts.slides ).each(function(i) {
         // convert anchors to template markup

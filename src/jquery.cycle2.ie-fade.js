@@ -1,4 +1,3 @@
-/*! ie-fade transition plugin for Cycle2;  version: 20140219 */
 (function($) {
 "use strict";
 
