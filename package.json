@@ -1,6 +1,6 @@
 {
   "name": "jquery-cycle2-gforces",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "homepage": "https://github.com/damian-dziaduch-gforces/cycle2-gforces",
   "engines": {
     "node": ">= 0.6.0"

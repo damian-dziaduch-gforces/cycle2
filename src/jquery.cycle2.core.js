@@ -529,7 +529,10 @@ $.fn.cycle.API = {
         }
 
         if ( isAfter && opts.hideNonActive )
-            opts.slides.filter( ':not(.' + opts.slideActiveClass + ')' ).css('visibility', 'hidden');
+            opts.slides.filter( ':not(.' + opts.slideActiveClass + ')' ).css({
+              visibility: 'hidden',
+              display: 'none'
+            });
 
         if ( opts.updateView === 0 ) {
             setTimeout(function() {
@@ -624,6 +627,7 @@ $.fn.cycle.transitions = {
             var css = opts.API.getSlideOpts( opts.nextSlide ).slideCss || {};
             opts.API.stackSlides( curr, next, fwd );
             opts.cssBefore = $.extend({}, css, { opacity: 0, visibility: 'visible', display: 'block' });
+            opts.cssAfter = { display: 'none' };
             opts.animIn = { opacity: 1 };
             opts.animOut = { opacity: 0 };
         }
@@ -633,6 +637,7 @@ $.fn.cycle.transitions = {
             var css = opts.API.getSlideOpts( opts.nextSlide ).slideCss || {};
             opts.API.stackSlides( curr, next, fwd );
             opts.cssBefore = $.extend({}, css, { opacity: 1, visibility: 'visible', display: 'block' });
+            opts.cssAfter = { display: 'none' };
             opts.animOut = { opacity: 0 };
         }
     },
@@ -641,7 +646,7 @@ $.fn.cycle.transitions = {
             opts.API.stackSlides( curr, next, fwd );
             var w = opts.container.css('overflow','hidden').width();
             opts.cssBefore = { left: fwd ? w : - w, top: 0, opacity: 1, visibility: 'visible', display: 'block' };
-            opts.cssAfter = { zIndex: opts._maxZ - 2, left: 0 };
+            opts.cssAfter = { zIndex: opts._maxZ - 2, left: 0, display: 'none' };
             opts.animIn = { left: 0 };
             opts.animOut = { left: fwd ? -w : w };
         }
